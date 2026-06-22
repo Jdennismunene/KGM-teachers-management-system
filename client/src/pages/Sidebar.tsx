@@ -1,4 +1,15 @@
-import { FaCalendar, FaChartBar, FaCircleArrowLeft, FaCircleArrowRight, FaCircleCheck, FaCube, FaGraduationCap, FaMessage, FaNoteSticky, FaStar } from "react-icons/fa6";
+import {
+  FaCalendar,
+  FaChartBar,
+  FaCircleArrowLeft,
+  FaCircleArrowRight,
+  FaCircleCheck,
+  FaCube,
+  FaGraduationCap,
+  FaMessage,
+  FaNoteSticky,
+  FaStar,
+} from "react-icons/fa6";
 import { useApp } from "../context/AppContext";
 import { FaHome } from "react-icons/fa";
 import { Menu, Notebook } from "lucide-react";
@@ -16,8 +27,16 @@ function Sidebar() {
     { name: "Programs", to: "/programs", icon: <FaStar /> },
     { name: "Events & Calendar", to: "/events", icon: <FaCalendar /> },
     { name: "Documents & Records", to: "/documents", icon: <FaNoteSticky /> },
-    { name: "Training & Resources", to: "/training", icon: <FaGraduationCap /> },
-    { name: "Contribution & Welfare", to: "/contribution", icon: <FaCircleCheck /> },
+    {
+      name: "Training & Resources",
+      to: "/training",
+      icon: <FaGraduationCap />,
+    },
+    {
+      name: "Contribution & Welfare",
+      to: "/contribution",
+      icon: <FaCircleCheck />,
+    },
     { name: "Communication", to: "/communication", icon: <FaMessage /> },
     { name: "Reports", to: "/reports", icon: <FaChartBar /> },
   ];
@@ -25,14 +44,13 @@ function Sidebar() {
   return (
     <aside
       className={`
-        fixed top-0 left-0 z-50 h-screen
-        bg-white/10 backdrop-blur-xl shadow-lg
-        flex flex-col
-        transition-all duration-300 ease-in-out
-        ${isOpen ? "w-64" : "w-20"}
-      `}
-    >
+    fixed top-0 left-0 z-50 h-screen
+    bg-white shadow-lg
+    transition-all duration-300
 
+    ${isOpen ? "w-64" : "w-20"}
+  `}
+    >
       {/* Logo */}
       <div className="flex items-center bg-blue-500/60 backdrop-blur-md">
         <img
@@ -54,9 +72,13 @@ function Sidebar() {
           className="cursor-pointer transition duration-300 hover:scale-110 "
         >
           {isOpen ? (
-            <FaCircleArrowLeft color="blue" size={24}  />
+            <FaCircleArrowLeft color="blue" size={24} />
           ) : (
-            <FaCircleArrowRight color="blue" size={18} className={`${isOpen ? "" : "relative right-1"}`} />
+            <FaCircleArrowRight
+              color="blue"
+              size={18}
+              className={`${isOpen ? "" : "relative right-1"}`}
+            />
           )}
         </button>
       </div>
@@ -83,9 +105,7 @@ function Sidebar() {
                 `
                 }
               >
-                <span className="text-lg shrink-0">
-                  {link.icon}
-                </span>
+                <span className="text-lg shrink-0">{link.icon}</span>
 
                 {/* label */}
                 <span
